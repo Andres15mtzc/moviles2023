@@ -23,9 +23,33 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyABCmhNs_EgX4xnsvb4MuveVqiKysdtd1A",
+  authDomain: "practicasandroid-a5c43.firebaseapp.com",
+  databaseURL: "https://practicasandroid-a5c43-default-rtdb.firebaseio.com",
+  projectId: "practicasandroid-a5c43",
+  storageBucket: "practicasandroid-a5c43.appspot.com",
+  messagingSenderId: "46500121824",
+  appId: "1:46500121824:web:f4ebc7439ff42f405d5485",
+  measurementId: "G-ERVCLBFZT5"
+};
+
+// Initialize Firebase
+const appFirebase = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(appFirebase);
   
 router.isReady().then(() => {
   app.mount('#app');
